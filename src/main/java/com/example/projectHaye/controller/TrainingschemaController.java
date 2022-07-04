@@ -5,6 +5,7 @@ import com.example.projectHaye.service.TrainingschemaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.Optional;
 
 @RestController
@@ -15,7 +16,7 @@ public class TrainingschemaController {
     TrainingschemaService trainingSchemaService;
 
     @PostMapping("/trainingschema")
-    Trainingschema save(@RequestBody Trainingschema trainingSchema){
+    Trainingschema save(@Valid @RequestBody Trainingschema trainingSchema){
         return trainingSchemaService.save(trainingSchema);
     }
 

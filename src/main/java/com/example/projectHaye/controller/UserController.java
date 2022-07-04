@@ -5,6 +5,8 @@ import com.example.projectHaye.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
+
 @RestController
 @CrossOrigin(origins = "*")
 public class UserController {
@@ -13,10 +15,10 @@ public class UserController {
 
 
     @PostMapping("/login")
-    public String login(@RequestBody User user) throws Exception{
+    public String login(@Valid @RequestBody User user) throws Exception{
         return userService
                 .login(user)
-                .orElseThrow(() -> new IllegalArgumentException("Combination of username and password not found."))
+                .orElseThrow(() -> new IllegalArgumentException("Deze combinatie gebruikersnaam+wachtwoord is niet bekend."))
                 .getUsername();
     }
 
