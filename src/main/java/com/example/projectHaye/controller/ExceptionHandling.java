@@ -1,17 +1,17 @@
 package com.example.projectHaye.controller;
 
 import org.springframework.http.HttpStatus;
-import org.springframework.web.bind.annotation.ControllerAdvice;
-import org.springframework.web.bind.annotation.ExceptionHandler;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.ResponseStatus;
+import org.springframework.web.bind.annotation.*;
 
 @ControllerAdvice
 @ResponseBody
+@CrossOrigin(origins = "*")
 public class ExceptionHandling {
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     @ExceptionHandler(IllegalArgumentException.class)
     public String exceptionHandler(Exception ex) {
-        return "error"+ex.getMessage();
+        return ex.getMessage();
     }
+
+    // HOI HAYE HIERBOVEN MOET EEN RESPONSEENTITY ALS RETURN TYPE
 }
