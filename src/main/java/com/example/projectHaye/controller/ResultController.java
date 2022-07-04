@@ -5,6 +5,7 @@ import com.example.projectHaye.service.ResultService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.Arrays;
 import java.util.List;
 
@@ -16,7 +17,7 @@ public class ResultController {
     ResultService resultService;
 
     @PostMapping("/result")
-    List<Result> saveAll(@RequestBody Result[] results) {
+    List<Result> saveAll(@Valid @RequestBody Result[] results) {
         return resultService.saveAll(Arrays.asList(results));
     }
 
