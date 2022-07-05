@@ -1,10 +1,15 @@
 package com.example.projectHaye.model;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import java.util.List;
 
 @Entity
+@Getter
+@Setter
 public class Trainingschema {
 
     @Id
@@ -13,21 +18,4 @@ public class Trainingschema {
 
     @NotBlank(message = "Vul een naam in voor het schema")
     String naam;
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public String getNaam() {
-        return naam;
-    }
-
-    public void setNaam(String naam) {
-        this.naam = naam;
-    }
-
 }

@@ -2,6 +2,7 @@ package com.example.projectHaye.controller;
 
 import com.example.projectHaye.model.Result;
 import com.example.projectHaye.service.ResultService;
+import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -11,9 +12,9 @@ import java.util.List;
 
 @RestController
 @CrossOrigin(origins = "*")
+@AllArgsConstructor
 public class ResultController {
 
-    @Autowired
     ResultService resultService;
 
     @PostMapping("/result")

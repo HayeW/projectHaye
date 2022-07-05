@@ -2,6 +2,7 @@ package com.example.projectHaye.controller;
 
 import com.example.projectHaye.model.User;
 import com.example.projectHaye.service.UserService;
+import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -9,8 +10,9 @@ import javax.validation.Valid;
 
 @RestController
 @CrossOrigin(origins = "*")
+@AllArgsConstructor
 public class UserController {
-    @Autowired
+
     UserService userService;
 
 
