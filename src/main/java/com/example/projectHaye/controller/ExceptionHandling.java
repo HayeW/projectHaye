@@ -4,6 +4,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.*;
+
+import javax.validation.ConstraintViolation;
 import javax.validation.ConstraintViolationException;
 import java.util.List;
 
@@ -33,10 +35,12 @@ public class ExceptionHandling {
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     @ExceptionHandler(ConstraintViolationException.class)
     public ErrorMessage exceptionHandler(ConstraintViolationException ex) {
-        //Dit is natuurlijk niet de bedoeling maar ik doe het toch want wil hier niet meer tijd aan besteden:
-        int start = ex.getMessage().indexOf("interpolatedMessage='")+"interpolatedMessage='".length();
-        int end = ex.getMessage().indexOf("'", start);
-
-        return new ErrorMessage(ex.getLocalizedMessage().substring(start,end));
+        String msg = ex
+                .getConstraintViolations()
+                .stream()
+                .findFirst()
+                .get()
+                .getMessage();
+        return new ErrorMessage(msg);
     }
 }
