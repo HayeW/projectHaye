@@ -5,6 +5,7 @@ import lombok.Setter;
 import org.hibernate.annotations.CreationTimestamp;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.time.LocalDateTime;
 
 @Entity
@@ -18,6 +19,6 @@ public class Workout {
     @CreationTimestamp
     private LocalDateTime createDate;
 
-    @ManyToOne
+    @ManyToOne @NotNull(message="Kan geen trainingschema vinden voor deze workout")
     Trainingschema trainingschema;
 }

@@ -33,6 +33,8 @@ public class ExceptionHandling {
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     @ExceptionHandler(ConstraintViolationException.class)
     public ErrorMessage exceptionHandler(ConstraintViolationException ex) {
+
+        // Onderstaande werkt nu maar heeft wel aannames dat findfirst() en get() goedgaan..
         String msg = ex
                 .getConstraintViolations()
                 .stream()

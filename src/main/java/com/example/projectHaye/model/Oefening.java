@@ -7,6 +7,7 @@ import javax.persistence.*;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
 @Entity
 @Getter
@@ -28,6 +29,6 @@ public class Oefening {
     @Max(value=99, message = "'Herhalingen' verwacht een waarde van 1-99")
     int herhalingen;
 
-    @ManyToOne
+    @ManyToOne @NotNull(message="Kan geen trainingschema vinden voor deze oefening")
     Trainingschema trainingschema;
 }

@@ -5,7 +5,6 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
 
 @Entity
 @Getter
@@ -15,15 +14,14 @@ public class Result {
     int id;
 
     @NotNull(message="Behaalde herhalingen niet goed gevuld")
-    @Size(min=3, max=3, message = "Behaalde herhalingen niet goed gevuld")
     int[] behaaldeHerhalingen;
+
     @NotNull(message="Gewicht niet goed gevuld")
-    @Size(min=3, max=3, message = "Gewicht niet goed gevuld")
     int[] gewicht;
 
-    @ManyToOne
+    @ManyToOne @NotNull(message="Kan geen oefening vinden voor dit resultaat")
     Oefening oefening;
 
-    @ManyToOne
+    @ManyToOne @NotNull(message="Kan geen workout vinden voor dit resultaat")
     Workout workout;
 }
