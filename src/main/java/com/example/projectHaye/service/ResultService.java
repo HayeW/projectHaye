@@ -2,15 +2,15 @@ package com.example.projectHaye.service;
 
 import com.example.projectHaye.model.Result;
 import com.example.projectHaye.repository.ResultRepository;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
+@AllArgsConstructor
 public class ResultService {
 
-    @Autowired
     ResultRepository resultRepository;
 
     public List<Result> saveAll(List<Result> results){

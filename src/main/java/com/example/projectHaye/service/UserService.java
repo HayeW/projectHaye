@@ -2,14 +2,14 @@ package com.example.projectHaye.service;
 
 import com.example.projectHaye.model.User;
 import com.example.projectHaye.repository.UserRepository;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
 
 @Service
+@AllArgsConstructor
 public class UserService {
-    @Autowired
     UserRepository userRepository;
 
     public Optional<User> login(User user){

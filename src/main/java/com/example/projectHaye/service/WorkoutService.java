@@ -2,12 +2,13 @@ package com.example.projectHaye.service;
 
 import com.example.projectHaye.model.Workout;
 import com.example.projectHaye.repository.WorkoutRepository;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 @Service
+@AllArgsConstructor
 public class WorkoutService {
-    @Autowired
+
     WorkoutRepository workoutRepository;
 
     public Workout save(Workout workout){

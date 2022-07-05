@@ -2,14 +2,16 @@ package com.example.projectHaye.service;
 
 import com.example.projectHaye.model.Oefening;
 import com.example.projectHaye.repository.OefeningRepository;
+import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
+@AllArgsConstructor
 public class OefeningService {
-    @Autowired
+
     OefeningRepository oefeningRepository;
 
     public List<Oefening> saveAll(List<Oefening> oefeningen){

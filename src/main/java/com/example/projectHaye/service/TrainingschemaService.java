@@ -2,14 +2,15 @@ package com.example.projectHaye.service;
 
 import com.example.projectHaye.model.Trainingschema;
 import com.example.projectHaye.repository.TrainingschemaRepository;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
 
 @Service
+@AllArgsConstructor
 public class TrainingschemaService {
-    @Autowired
+
     TrainingschemaRepository trainingSchemaRepository;
 
     public Trainingschema save(Trainingschema trainingSchema){
