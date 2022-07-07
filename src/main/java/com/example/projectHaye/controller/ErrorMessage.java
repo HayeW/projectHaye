@@ -1,5 +1,10 @@
 package com.example.projectHaye.controller;
 
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter
+@Setter
 public class ErrorMessage {
     private String[] messages;
 
@@ -9,13 +14,5 @@ public class ErrorMessage {
 
     public ErrorMessage(String message) {
         this(new String[]{message});
-    }
-
-    public String[] getMessages() {
-        return messages;
-    }
-
-    public void setMessages(String[] messages) {
-        this.messages = messages;
     }
 }
