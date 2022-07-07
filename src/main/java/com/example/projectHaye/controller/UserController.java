@@ -14,16 +14,15 @@ public class UserController {
 
     UserService userService;
 
-
     @PostMapping("/login")
-    public User login(@Valid @RequestBody User user) throws Exception{
+    User login(@Valid @RequestBody User user) throws Exception{
         return userService
                 .login(user)
                 .orElseThrow(() -> new IllegalArgumentException("Deze combinatie gebruikersnaam+wachtwoord is niet bekend."));
     }
 
-    @PutMapping("/login")
-    public User save(@RequestBody User user){
+    @PostMapping("/register")
+    User save(@Valid @RequestBody User user){
         return userService.save(user);
     }
 

@@ -10,6 +10,7 @@ import java.util.Optional;
 @Service
 @AllArgsConstructor
 public class UserService {
+
     UserRepository userRepository;
 
     public Optional<User> login(User user){
